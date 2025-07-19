@@ -1,22 +1,30 @@
 import express from "express";
-import "dotenv/config";
-import cors from "cors";
+import dotenv from "dotenv";
 import connectDB from "./config/connectdb.js";
-import router  from "./routes/user.routes.js";
-const app=express();
+import authRoutes  from "./routes/auth.routes.js";
+  import quizRoutes from "./routes/quiz.routes.js";
+  import videoRoutes from "./routes/video.routes.js"
+
+
+dotenv.config();
+
+const app =express();
+const PORT = process.env.PORT || 7777;
+
+
 connectDB();
 
-app.use(cors());
-app.use(express.json());
 
-// app.use("api/v1/auth",authRoutes);
+app.use(express.json());
+app.use("/api/v1/auth",authRoutes);
+app.use("/api/v1/quiz",quizRoutes);
+app.use("/api/v1/video",videoRoutes);
 
 
 app.get("/",(req,res)=>{
-res.send("🚀 Kreapt Backend is Running");
-
+res.send("Welcome to the Quiz App");
 });
 
-const PORT= process.env.PORT ||7777;
-app.listen(PORT,()=>console.log(`🚀Server running on ${PORT}`));
-
+app.listen(PORT,()=>
+    console.log(`🚀🚀Server running on port ${PORT}`)
+);
