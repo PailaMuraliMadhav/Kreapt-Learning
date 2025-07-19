@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/connectdb.js";
-import authRoutes  from "./routes/auth.routes.js";
-  import quizRoutes from "./routes/quiz.routes.js";
-  import videoRoutes from "./routes/video.routes.js"
+import authRoutes from "./routes/authRoutes.js";
+  import quizRoutes from "./routes/quizRoutes.js";
+  import videoRoutes from "./routes/videoRoutes.js"
 
 
 dotenv.config();

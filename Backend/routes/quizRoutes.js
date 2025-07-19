@@ -3,9 +3,9 @@ import { protect } from "../middleware/auth.middleware.js";
 import { createQuiz,getQuizByVideo } from "../controllers/quiz.controller.js";
 
 
-const quizRoutes = express.Router();
+const router = express.Router();
 
-quizRoutes.post("/",protect,createQuiz);
-quizRoutes.get("/:videoId", getQuizByVideo);
+router.post("/",protect,createQuiz);
+router.get("/:videoId", getQuizByVideo);
 
-export default quizRoutes;
+export default router;

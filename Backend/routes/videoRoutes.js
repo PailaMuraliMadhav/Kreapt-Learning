@@ -1,9 +1,9 @@
 import express from 'express';
 import { uploadVideo,getVideos } from '../controllers/video.controller.js';
 import { protect } from '../middleware/auth.middleware.js';
-const videoRoutes =express.Router();
+const router =express.Router();
 
-videoRoutes.post('/upload',protect,uploadVideo);
-videoRoutes.get('/videos',protect,getVideos  );
+router.post('/upload',protect,uploadVideo);
+router.get('/videos',protect,getVideos  );
 
-export default videoRoutes;  
+export default router;  
